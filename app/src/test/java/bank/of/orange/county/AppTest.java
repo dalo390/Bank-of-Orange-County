@@ -7,8 +7,39 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test void bankTestPayment() {
+        Bank b1 = new Bank();
+        b1.addUser("Alpha", "123 Living St", 987654321, 100);
+        b1.addUser("Beta", "456 Living St", 123456789, 1);
+        b1.addUser("Chris", "789 Living St", 52346, 500);
+        b1.payUserToUser(3, 1, 50);
+        b1.getAccounts();
+    }
+
+    @Test void bankTestMedianOdd() {
+        Bank b1 = new Bank();
+        b1.addUser("Alpha", "123 Living St", 987654321, 123);
+        b1.addUser("Beta", "456 Living St", 123456789, 456);
+        b1.addUser("Chris", "789 Living St", 52346, 789);
+        b1.addUser("Delta", "101112 Living St", 6426425, 1000);
+        b1.addUser("Epsilon", "131415 Living St", 54324, 1111);
+        b1.addUser("Fred", "161718 Living St", 11234, 12222);
+        b1.deleteUser(1);
+        b1.addUser("Gamma", "192021 Living St", 45326, 13333);
+        b1.addUser("Henry", "222324 Living St", 56786, 14444);
+        assertEquals(3, b1.getMedianID());
+    }
+
+    @Test void bankTestMedianEven() {
+        Bank b1 = new Bank();
+        b1.addUser("Alpha", "123 Living St", 987654321, 123);
+        b1.addUser("Beta", "456 Living St", 123456789, 456);
+        b1.addUser("Chris", "789 Living St", 52346, 789);
+        b1.addUser("Delta", "101112 Living St", 6426425, 1000);
+        b1.addUser("Epsilon", "131415 Living St", 54324, 1111);
+        b1.addUser("Fred", "161718 Living St", 11234, 12222);
+        b1.addUser("Gamma", "192021 Living St", 45326, 13333);
+        b1.addUser("Henry", "222324 Living St", 56786, 14444);
+        assertEquals(4, b1.getMedianID());
     }
 }

@@ -4,11 +4,23 @@
 package bank.of.orange.county;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World NOOOO!";
+    public int bankTest() {
+        Bank b1 = new Bank();
+        b1.addUser("Alpha", "123 Living St", 987654321, 123);
+        b1.addUser("Beta", "456 Living St", 123456789, 456);
+        b1.addUser("Chris", "789 Living St", 52346, 789);
+        b1.addUser("Delta", "101112 Living St", 6426425, 1000);
+        b1.addUser("Epsilon", "131415 Living St", 54324, 1111);
+        b1.addUser("Fred", "161718 Living St", 11234, 12222);
+        b1.deleteUser(2);
+        b1.addUser("Gamma", "192021 Living St", 45326, 13333);
+        b1.addUser("Henry", "222324 Living St", 56786, 14444);
+        b1.deleteUser(4);
+        return b1.getMedianID();
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        App apptest = new App();
+        //System.out.println(apptest.bankTest());
     }
 }
